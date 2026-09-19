@@ -10,6 +10,8 @@ export default async function BlogPage() {
   let blogs: BlogPost[] = [];
   let hasError = false;
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'https://decode-blog.onrender.com';
+
   try {
     const res = await fetch(`${API_URL}/api/blogs`);
     if (!res.ok) throw new Error("Fetch failed");

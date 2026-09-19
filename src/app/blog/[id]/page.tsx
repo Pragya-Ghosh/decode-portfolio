@@ -8,12 +8,12 @@ type Props = {
 };
 
 export default async function SingleBlogPage({ params }: Props) {
-  // 1. Await the params to unwrap the Promise
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  // 2. Fetch using the resolved ID
-  const res = await fetch(`http://127.0.0.1:8000/api/blogs/${id}`);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'https://decode-blog.onrender.com';
+
+  const res = await fetch(`${API_URL}/api/blogs/${id}`);
   
   if (!res.ok) notFound();
   

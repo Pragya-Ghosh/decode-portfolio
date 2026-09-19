@@ -9,9 +9,10 @@ export default function LatestBlogs() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
 
   useEffect(() => {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'https://decode-blog.onrender.com';
+
     fetch(`${API_URL}/api/blogs`)
       .then((res) => {
         if (!res.ok) throw new Error("Fetch failed");

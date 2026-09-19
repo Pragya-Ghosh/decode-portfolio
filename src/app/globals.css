@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .font-monoton {
+    font-family: var(--font-monoton);
+  }
+  .font-terminal {
+    font-family: var(--font-jetbrains);
   }
 }
 
+@theme {
+  /* Core Site Colors */
+  --color-bg: #f4f6f9;
+  --color-text-main: #646d7a;
+  --color-accent-dark: #172554;
+  --color-accent-light: #747fe0;
+  --color-border: rgba(100, 109, 122, 0.2);
+
+  /* Terminal Colors (Your Original Palette) */
+  --color-term-bg: #3b4252;
+  --color-term-text: #cdd0d9;
+  --color-term-string: #88c0d0;
+  --color-term-array: #ebcb8b;
+
+  /* Extra Terminal Tokens (Needed for TerminalOutput links) */
+  --color-term-muted: #6c7086;
+  --color-term-key: #89dceb;
+  --color-term-chrome: #181825;
+  --color-term-tab: #313244;
+  --color-term-user: #a6e3a1;
+  --color-term-path: #89b4fa;
+  --color-term-prompt: #f5c2e7;
+
+  /* Badges */
+  --color-badge-wip-bg: rgba(230, 168, 23, 0.15);
+  --color-badge-wip-text: #7a4f00;
+  --color-badge-done-bg: rgba(20, 180, 100, 0.12);
+  --color-badge-done-text: #0a6640;
+
+  /* Custom spacing token for the repeated clamp() padding */
+  --spacing-section-x: clamp(20px, 4vw, 40px);
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 7em; }
+}
+
+@keyframes caret {
+  50% { background-color: transparent; }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 0.8s steps(12, end) forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: rgba(116, 127, 224, 0.65);
+  vertical-align: -0.15em;
+  animation: caret 1s steps(1) infinite;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  background: var(--color-term-text);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: caret 1s steps(1) infinite;
 }

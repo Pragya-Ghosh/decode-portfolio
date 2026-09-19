@@ -11,9 +11,8 @@ export default function LatestBlogs() {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'https://decode-blog.onrender.com';
-
-    fetch(`${API_URL}/api/blogs`)
+    // Fetch directly from your internal Next.js API route
+    fetch('/api/blogs')
       .then((res) => {
         if (!res.ok) throw new Error("Fetch failed");
         return res.json();

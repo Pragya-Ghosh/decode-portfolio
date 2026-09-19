@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { createClient } from '@supabase/supabase-js';
 
 export const dynamic = 'force-dynamic';
 
@@ -7,18 +8,23 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+// Initialize Supabase directly on the server
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseKey = process.env.SUPABASE_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 export default async function SingleBlogPage({ params }: Props) {
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || 'https://decode-blog.onrender.com';
+  // Direct database query on the server
+  const { data: blog, error } = await supabase
+    .from('blogs')
+    .select('*')
+    .eq('id', id)
+    .single();
 
-  const res = await fetch(`${API_URL}/api/blogs/${id}`);
-  
-  if (!res.ok) notFound();
-  
-  const blog = await res.json();
-  if (blog.error) notFound();
+  if (error || !blog) notFound();
 
   return (
     <article className="mx-auto mt-24 w-full max-w-3xl px-section-x pb-20">

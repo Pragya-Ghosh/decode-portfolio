@@ -63,7 +63,7 @@ export default function LatestBlogs() {
       <div className="mt-2 flex w-full justify-start">
         <Link 
           href="/blog" 
-          className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 font-mono text-sm font-bold text-accent-dark transition-colors hover:text-accent-light"
+          className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 text-base text-accent-dark transition-colors hover:text-accent-light"
         >
           See all posts <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
         </Link>

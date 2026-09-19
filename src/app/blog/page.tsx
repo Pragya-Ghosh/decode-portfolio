@@ -3,12 +3,15 @@ import BlogCard, { BlogPost } from '@/components/Blog/BlogCard';
 
 export const dynamic = 'force-dynamic';
 
+// Fallback to localhost if the environment variable isn't set yet
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+
 export default async function BlogPage() {
   let blogs: BlogPost[] = [];
   let hasError = false;
 
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/blogs');
+    const res = await fetch(`${API_URL}/api/blogs`);
     if (!res.ok) throw new Error("Fetch failed");
     const data = await res.json();
     if (data.error) throw new Error(data.error);

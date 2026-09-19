@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-// Next.js 15 requires params to be typed as a Promise
 type Props = {
   params: Promise<{ id: string }>;
 };

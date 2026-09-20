@@ -49,7 +49,7 @@ export const terminalLines: TerminalLine[] = [
     command: 'cat languages.json',
     output: {
       kind: 'array',
-      items: ['Python', 'Java', 'R', 'C/C++', 'JavaScript', 'TypeScript'],
+      items: ['Python', 'Java', 'R', 'C/C++', 'SQL', 'JavaScript'],
     },
   },
 ];

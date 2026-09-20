@@ -6,15 +6,15 @@ export default function Hero() {
     >
       <div className="flex w-full flex-col items-start text-left">
         <h1 
-          className="mb-10 mt-8 flex flex-wrap items-center text-[clamp(1.75rem,8vw,4.5rem)] font-black leading-[1.2] tracking-[-1px] text-accent-dark md:mb-[70px] md:mt-[50px] md:leading-[1.5]"
+          className="mb-10 mt-8 flex flex-nowrap items-center text-[clamp(1.5rem,7.5vw,4.5rem)] font-black leading-[1.2] tracking-[-1px] text-accent-dark md:mb-[70px] md:mt-[50px] md:leading-[1.5]"
           style={{ wordSpacing: '8px' }}
         >
           <span className="mr-3 shrink-0 font-normal text-accent-light md:mr-[24px]">&gt;</span>
-        
-          <span className="inline-flex items-center whitespace-nowrap">
+          
+          {/* simple flex container to keep the typing text and caret tightly bound */}
+          <span className="flex flex-nowrap items-center whitespace-nowrap">
             <span className="animate-typing text-accent-dark">Pragya Ghosh</span>
-            {/* ml-1.3 to pull the blinker closer to the text on mobile */}
-            <span className="animate-caret -ml-1.3 md:ml-0 md:-ml-1"></span>
+            <span className="animate-caret -ml-2 shrink-0 md:-ml-1"></span>
           </span>
         </h1>
         

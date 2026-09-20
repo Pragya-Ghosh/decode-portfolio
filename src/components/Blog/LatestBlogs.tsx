@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import SectionTitle from '@/components/Section/SectionTitle';
-import BlogCard, { BlogPost } from '@/components/Blog/BlogCard';
+import BlogCard from '@/components/Blog/BlogCard';
+import { BlogPost } from '@/types/blog';
 
 export default function LatestBlogs() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);

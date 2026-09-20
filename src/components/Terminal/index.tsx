@@ -8,7 +8,7 @@ export default function Terminal() {
       w-[100vw] relative left-1/2 -translate-x-1/2 
       sm:static sm:w-full sm:max-w-6xl sm:translate-x-0"
     >
-      {/* ring-0 and rounded-none on mobile ensures a perfectly flush fit against the screen edge */}
+
       <div className="w-full overflow-hidden rounded-none sm:rounded-xl bg-term-bg font-mono shadow-2xl ring-0 sm:ring-1 sm:ring-white/10">
         
         {/* kitty tab strip */}

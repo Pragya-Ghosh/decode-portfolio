@@ -35,14 +35,12 @@ export default async function SingleBlogPage({ params }: Props) {
           <BlogBackButton />
         </Suspense>
         
-        {/* Tightened header bottom margin from mb-10 to mb-6 sm:mb-8 */}
         <header className="mb-6 sm:mb-8">
-          {/* Tightened heading bottom margin from mb-7 to mb-3 sm:mb-4 */}
-          <h1 className="mb-3 sm:mb-4 text-3xl font-black text-accent-dark sm:text-4xl md:text-5xl">
+          <h1 className="mb-3 sm:mb-4 text-2xl font-black leading-tight text-accent-dark sm:text-3xl md:text-5xl md:leading-tight">
             {blog.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-4 font-mono text-xs sm:text-sm text-text-main">
+          <div className="flex flex-wrap items-center gap-4 font-mono text-[0.75rem] sm:text-sm text-text-main">
             <span>
               {new Date(blog.created_at).toLocaleDateString('en-US', { 
                 year: 'numeric', month: 'long', day: 'numeric' 
@@ -50,7 +48,7 @@ export default async function SingleBlogPage({ params }: Props) {
             </span>
             <div className="flex gap-2">
               {blog.tags?.map((tag: string) => (
-                <span key={tag} className="rounded-md border border-border px-2 py-1 text-xs">
+                <span key={tag} className="rounded-md border border-border px-2 py-1 text-[0.65rem] sm:text-xs">
                   {tag}
                 </span>
               ))}
@@ -58,13 +56,11 @@ export default async function SingleBlogPage({ params }: Props) {
           </div>
         </header>
 
-        {/* Tightened cover image container margin from mb-10 to mb-6 sm:mb-8 */}
         <div className="mb-6 sm:mb-8 flex min-h-48 sm:min-h-60 w-full items-center justify-center rounded-xl border border-border bg-border font-mono text-sm text-text-main">
           {blog.cover_image_url ? 'Cover Image Rendered Here' : 'No Cover Image'}
         </div>
 
-        {/* Markdown Content Container */}
-        <div className="prose prose-lg max-w-none text-text-main leading-relaxed
+        <div className="prose md:prose-lg max-w-none text-text-main leading-relaxed
           prose-headings:text-accent-dark prose-headings:font-bold
           prose-a:text-accent-light prose-a:underline hover:prose-a:text-accent-dark
           prose-strong:text-accent-dark
@@ -78,7 +74,8 @@ export default async function SingleBlogPage({ params }: Props) {
       </article>
 
       <footer className="mx-auto flex w-full max-w-3xl flex-col items-center justify-between gap-4 border-t border-border px-6 sm:px-8 py-6 text-center md:h-20 md:flex-row md:py-0 md:text-left">
-        <p className="m-0 text-[16px] text-text-main transition-colors hover:text-accent-dark">
+
+        <p className="m-0 text-sm md:text-base text-text-main transition-colors hover:text-accent-dark">
           © {new Date().getFullYear()} Pragya Ghosh. All rights reserved.
         </p>
         
@@ -87,7 +84,7 @@ export default async function SingleBlogPage({ params }: Props) {
             href="https://www.linkedin.com/in/pragyaghosh-decode/"
             target="_blank"
             rel="noreferrer"
-            className="text-xl text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
+            className="text-lg text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
           >
             <FaLinkedin />
           </a>
@@ -95,13 +92,13 @@ export default async function SingleBlogPage({ params }: Props) {
             href="https://github.com/Pragya-Ghosh"
             target="_blank"
             rel="noreferrer"
-            className="text-xl text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
+            className="text-lg text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
           >
             <FaGithub />
           </a>
           <a
             href="mailto:pragyarashmighosh@gmail.com"
-            className="text-xl text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
+            className="text-lg text-text-main transition-transform hover:-translate-y-1 hover:text-accent-light md:text-2xl"
           >
             <FaEnvelope />
           </a>

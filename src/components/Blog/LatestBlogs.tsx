@@ -37,15 +37,15 @@ export default function LatestBlogs() {
       
       <div className="mt-8 flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {loading ? (
-          <div className="flex min-h-40 w-full items-center justify-center font-mono text-sm text-text-main">
+          <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
             Loading logs...
           </div>
         ) : hasError ? (
-          <div className="flex min-h-40 w-full items-center justify-center font-mono text-sm text-text-main">
+          <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
             Unable to load recent logs at this time.
           </div>
         ) : blogs.length === 0 ? (
-          <div className="flex min-h-40 w-full items-center justify-center font-mono text-sm text-text-main">
+          <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
             No posts found.
           </div>
         ) : (

@@ -47,14 +47,14 @@ export default function LatestBlogs() {
       </SectionTitle>
       
       {/* Wrapper to hold the < arrows > and the carousel together */}
-      <div className="mt-8 flex w-full items-center gap-2 md:gap-4">
+      <div className="relative mt-8 flex w-full items-center">
         
         {/* LEFT ARROW */}
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('left')}
-            // Hidden on mobile (users can just swipe), visible on md+ screens
-            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border text-lg text-accent-dark transition-colors hover:border-accent-light hover:text-accent-light md:flex"
+            // Positioned absolutely so it doesn't push the blog cards inward
+            className="absolute -left-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
             aria-label="Scroll left"
           >
             &lt;
@@ -64,8 +64,8 @@ export default function LatestBlogs() {
         {/* CAROUSEL */}
         <div 
           ref={scrollContainerRef}
-          // Added flex-1 to take up the middle space
-          className="flex flex-1 snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          // Changed back to w-full so it naturally aligns with the header above
+          className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
             <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
@@ -95,7 +95,8 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('right')}
-            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border text-lg text-accent-dark transition-colors hover:border-accent-light hover:text-accent-light md:flex"
+            // Positioned absolutely on the right
+            className="absolute -right-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
             aria-label="Scroll right"
           >
             &gt;
@@ -103,7 +104,8 @@ export default function LatestBlogs() {
         )}
       </div>
 
-      <div className="mt-6 flex w-full justify-start md:pl-16">
+      {/* Removed md:pl-16 so this link is perfectly flush with the left side */}
+      <div className="mt-6 flex w-full justify-start">
         <Link 
           href="/blog" 
           className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 text-base text-accent-dark transition-colors hover:text-accent-light"

@@ -12,10 +12,8 @@ export default function Hero() {
           <span className="mr-3 shrink-0 font-normal text-accent-light md:mr-[24px]">&gt;</span>
           
           <span className="flex flex-nowrap items-center whitespace-nowrap">
-            <span className="animate-typing text-accent-dark">Pragya Ghosh</span>
-            
-            {/* Brute-forcing the caret to the left on mobile to close the invisible CSS gap */}
-            <span className="animate-caret -ml-5 shrink-0 md:-ml-1 lg:ml-0"></span>
+            <span className="text-accent-dark md:animate-typing">Pragya Ghosh</span>
+            <span className="animate-caret hidden md:inline-block md:ml-2 shrink-0"></span>
           </span>
         </h1>
         

@@ -4,7 +4,7 @@ import TerminalPrompt from './TerminalPrompt';
 
 export default function Terminal() {
   return (
-    <section className="mx-auto mt-12 w-full max-w-6xl px-1 sm:px-3 md:mt-20 md:px-section-x">
+    <section className="mx-auto mt-12 w-full max-w-6xl px-3 sm:px-4 md:mt-20 md:px-section-x">
       <div className="w-full overflow-hidden rounded-lg bg-term-bg font-mono shadow-2xl ring-1 ring-white/5">
         
         {/* kitty tab strip */}

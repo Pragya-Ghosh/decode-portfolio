@@ -5,7 +5,7 @@ export default function Hero() {
       className="mx-auto mt-35 flex w-full max-w-6xl flex-col items-start px-section-x"
     >
       <div className="flex w-full flex-col items-start text-left">
-        <h1 className="mt-8 mb-10 flex w-full flex-nowrap items-center text-[clamp(1.5rem,7.5vw,4.5rem)] leading-[1.2] font-black tracking-[-1px] text-accent-dark md:mt-[50px] md:mb-[70px] md:leading-[1.5]">
+        <h1 className="mt-8 mb-10 flex w-full flex-nowrap items-center text-[clamp(1.75rem,8vw,4.8rem)] leading-[1.2] font-black tracking-[-1px] text-accent-dark md:mt-[50px] md:mb-[70px] md:leading-[1.5]">
           <span className="mr-3 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
           <span className="typing-wrap">
             <span className="typing-text text-accent-dark">Pragya&nbsp;Ghosh</span>

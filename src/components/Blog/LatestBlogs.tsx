@@ -67,7 +67,7 @@ export default function LatestBlogs() {
         >
           {loading ? (
             <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">
-              Loading logs...
+              Loading content...
             </div>
           ) : hasError ? (
             <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">

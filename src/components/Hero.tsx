@@ -11,14 +11,14 @@ export default function Hero() {
         >
           <span className="mr-3 shrink-0 font-normal text-accent-light md:mr-[24px]">&gt;</span>
           
-          {/* simple flex container to keep the typing text and caret tightly bound */}
-          <span className="flex flex-nowrap items-center whitespace-nowrap">
-            <span className="animate-typing text-accent-dark">Pragya Ghosh</span>
-            <span className="animate-caret -ml-2 shrink-0 md:-ml-1"></span>
+          <span className="flex w-max items-center whitespace-nowrap">
+          
+            <span className="animate-typing w-max text-accent-dark">Pragya Ghosh</span>
+            
+            <span className="animate-caret ml-1 shrink-0 md:ml-2"></span>
           </span>
         </h1>
         
-        {/* 17px on mobile, 20px on desktop */}
         <p className="mb-3 text-[17px] leading-relaxed text-text-main md:mb-4 md:text-[20px]">
           I am a CSE student passionate about building data-driven software solutions.
         </p>

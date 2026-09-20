@@ -83,7 +83,7 @@ export default function LatestBlogs() {
                 key={blog.id} 
                 blog={blog} 
                 // index > 0 hides cards after the first one on mobile, shows all on desktop (md:flex)
-                className={`w-full shrink-0 snap-start md:w-[26rem] ${index > 0 ? 'hidden md:flex' : 'flex'}`} 
+                className={`w-full shrink-0 snap-start md:w-[26rem] ${index > 2 ? 'hidden md:flex' : 'flex'}`} 
                 source="home"
               />
             ))

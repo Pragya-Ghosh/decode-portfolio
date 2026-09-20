@@ -64,7 +64,6 @@ export default function LatestBlogs() {
         {/* CAROUSEL */}
         <div 
           ref={scrollContainerRef}
-          // Changed back to w-full so it naturally aligns with the header above
           className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
@@ -104,7 +103,6 @@ export default function LatestBlogs() {
         )}
       </div>
 
-      {/* Removed md:pl-16 so this link is perfectly flush with the left side */}
       <div className="mt-6 flex w-full justify-start">
         <Link 
           href="/blog" 

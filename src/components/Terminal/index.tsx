@@ -7,7 +7,7 @@ export default function Terminal() {
     <section className="mx-auto mt-12 w-full max-w-6xl px-1 sm:px-3 md:mt-20 md:px-section-x">
       <div className="w-full overflow-hidden rounded-lg bg-term-bg font-mono shadow-2xl ring-1 ring-white/5">
         
-        {/* kitty tab strip - made padding and text scale cleanly on mobile */}
+        {/* kitty tab strip */}
         <div className="flex h-9 items-end gap-1 bg-term-chrome px-2 md:h-11 md:px-3">
           <div className="flex h-7 items-center gap-1.5 rounded-t-md bg-term-tab px-2.5 text-xs text-term-text sm:text-sm md:h-9 md:px-4 md:text-base">
             <span className="text-term-muted">1:</span>
@@ -18,7 +18,7 @@ export default function Terminal() {
           </div>
         </div>
 
-        {/* body - responsive padding and font-scaling to prevent cramped text */}
+        {/* body */}
         <div className="p-3 text-xs leading-relaxed text-term-text sm:p-4 sm:text-sm sm:leading-7 md:px-8 md:py-8 md:text-lg md:leading-9 overflow-x-auto">
           {terminalLines.map((line) => (
             <div key={line.command} className="mb-4 last:mb-0">

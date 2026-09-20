@@ -11,10 +11,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div className="flex flex-col overflow-hidden rounded-xl border border-border bg-white md:flex-row">
-      <div className="flex min-h-40 w-full shrink-0 items-center justify-center bg-border text-text-main md:min-h-55 md:w-50">
+      {/* Hidden on mobile to keep things fast and lightweight, visible on desktop */}
+      <div className="hidden min-h-40 w-full shrink-0 items-center justify-center bg-border text-text-main md:flex md:min-h-55 md:w-50">
         Img Placeholder
       </div>
-      <div className="flex flex-1 flex-col gap-2.5 p-5 md:p-8">
+      
+      <div className="flex flex-1 flex-col gap-2 p-4 md:p-8">
         
         {/* Title and Badge */}
         <div className="flex flex-col items-start gap-2">
@@ -24,13 +26,13 @@ export default function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
         
-        {/* Description */}
-        <p className="m-0 text-sm leading-relaxed text-text-main md:text-base md:leading-7">
+        {/* Description - clamped to 2 lines on mobile for quick skimming */}
+        <p className="m-0 text-sm leading-relaxed text-text-main line-clamp-2 md:line-clamp-none md:text-base md:leading-7">
           {description}
         </p>
         
-        {/* Tags */}
-        <div className="mt-1 flex flex-wrap gap-2">
+        {/* Tags - Hidden on mobile, visible on desktop */}
+        <div className="mt-1 hidden flex-wrap gap-2 md:flex">
           {tags.map((tag) => (
             <span
               key={tag}
@@ -46,7 +48,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={githubUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-auto flex w-fit items-center gap-1.5 pt-3 text-sm font-medium text-accent-light transition-colors hover:text-accent-dark md:text-base"
+          className="mt-auto flex w-fit items-center gap-1.5 pt-2 text-sm font-medium text-accent-light transition-colors hover:text-accent-dark md:pt-3 md:text-base"
         >
           <FaGithub className="text-base md:text-[1.1rem]" />
           View on GitHub

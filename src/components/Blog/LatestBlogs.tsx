@@ -41,7 +41,7 @@ export default function LatestBlogs() {
   };
 
   return (
-    <div className="mx-auto mb-12.5 flex w-full max-w-6xl flex-col px-1 sm:px-3 md:px-section-x">
+    <div className="mx-auto mb-12.5 flex w-full max-w-6xl flex-col px-3 sm:px-4 md:px-section-x">
       <SectionTitle variant="default" as="h2">
         <span className="mr-4 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
         Latest Posts
@@ -83,7 +83,6 @@ export default function LatestBlogs() {
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                // Full width stacked cards on mobile, fixed card width on desktop carousel
                 className="w-full shrink-0 snap-start md:w-[26rem]" 
                 source="home"
               />

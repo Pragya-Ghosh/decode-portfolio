@@ -10,8 +10,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const { title, status, statusLabel, description, tags, githubUrl } = project;
 
   return (
-    // mobile separator: adds a clean top border and padding to clearly split cards
-    <div className="flex flex-col overflow-hidden border-t border-border pt-6 bg-transparent md:flex-row md:rounded-xl md:border md:border-border md:bg-white md:pt-0">
+    <div className="flex flex-col overflow-hidden border-t border-border pt-6 bg-transparent first:border-t-0 first:pt-0 md:flex-row md:rounded-xl md:border md:border-border md:bg-white md:pt-0">
       {/* Hidden on mobile, visible on desktop */}
       <div className="hidden min-h-40 w-full shrink-0 items-center justify-center bg-border text-text-main md:flex md:min-h-55 md:w-50">
         Img Placeholder

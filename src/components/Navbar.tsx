@@ -16,7 +16,7 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
           <li key={link.id}>
             <a 
               href={link.href} 
-              className={`text-base font-medium transition-colors hover:text-accent-dark ${
+              className={`text-lg font-medium transition-colors hover:text-accent-dark ${
                 activeSection === link.id 
                   ? 'text-accent-light font-bold' 
                   : 'text-text-main'

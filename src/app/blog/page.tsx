@@ -27,7 +27,7 @@ export default async function BlogArchivePage() {
   }
 
   return (
-    <div className="mx-auto mt-28 sm:mt-32 md:mt-35 w-full max-w-6xl px-3 sm:px-4 md:px-section-x pb-20">
+    <div className="mx-auto mt-6 sm:mt-8 w-full max-w-6xl px-3 sm:px-4 md:px-section-x pb-20">
       {/* Back button linking directly to home blog section */}
       <div className="mb-6">
         <Link 

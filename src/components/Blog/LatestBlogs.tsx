@@ -32,7 +32,7 @@ export default function LatestBlogs() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = window.innerWidth < 768 ? window.innerWidth * 0.75 : 440;
+      const scrollAmount = 440;
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -46,35 +46,36 @@ export default function LatestBlogs() {
         <span className="mr-4 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
         Latest Posts
       </SectionTitle>
-    
-      <div className="relative mt-4 flex w-full items-center px-11 sm:px-12 md:px-0 sm:mt-6 md:mt-8">
+      
+      {/* Wrapper */}
+      <div className="relative mt-4 flex w-full items-center md:mt-8 md:px-12">
         
-        {/* LEFT ARROW */}
+        {/* LEFT ARROW (Desktop only) */}
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-1 sm:left-1 md:-left-12 lg:-left-16 z-20 flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-sm sm:text-base md:text-lg text-accent-dark shadow-md transition-colors hover:border-accent-light hover:text-accent-light"
+            className="absolute -left-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
             aria-label="Scroll left"
           >
             &lt;
           </button>
         )}
 
-        {/* CAROUSEL */}
+        {/* CONTAINER: Vertical stack on mobile (w-full), horizontal carousel on desktop (md:flex-row) */}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-6 [&::-webkit-scrollbar]:hidden"
+          className="flex w-full flex-col gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
-            <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
+            <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">
               Loading logs...
             </div>
           ) : hasError ? (
-            <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
+            <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">
               Unable to load recent logs at this time.
             </div>
           ) : blogs.length === 0 ? (
-            <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
+            <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">
               No posts found.
             </div>
           ) : (
@@ -82,18 +83,19 @@ export default function LatestBlogs() {
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                className="w-[78vw] shrink-0 snap-start sm:w-[22rem] md:w-[26rem]" 
+                // Full width stacked cards on mobile, fixed card width on desktop carousel
+                className="w-full shrink-0 snap-start md:w-[26rem]" 
                 source="home"
               />
             ))
           )}
         </div>
 
-        {/* RIGHT ARROW */}
+        {/* RIGHT ARROW (Desktop only) */}
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-1 sm:right-1 md:-right-12 lg:-right-16 z-20 flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-sm sm:text-base md:text-lg text-accent-dark shadow-md transition-colors hover:border-accent-light hover:text-accent-light"
+            className="absolute -right-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
             aria-label="Scroll right"
           >
             &gt;

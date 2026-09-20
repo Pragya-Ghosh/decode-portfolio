@@ -61,10 +61,10 @@ export default function LatestBlogs() {
           </button>
         )}
 
-        {/* CONTAINER: Vertical stack on mobile (w-full), horizontal carousel on desktop (md:flex-row) */}
+        {/* CONTAINER*/}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full flex-col gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
+          className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
             <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">

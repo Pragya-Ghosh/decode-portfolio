@@ -13,21 +13,25 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
       href={`/blog/${blog.id}?from=${source}`}
       className={`group flex flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-1 hover:shadow-lg ${className}`}
     >
-      <div className="flex min-h-48 w-full shrink-0 items-center justify-center bg-border font-mono text-sm text-text-main">
+      {/* Hidden entirely on mobile for speed, visible on desktop */}
+      <div className="hidden min-h-48 w-full shrink-0 items-center justify-center bg-border font-mono text-sm text-text-main md:flex">
         {blog.cover_image_url ? 'Image loaded' : 'Img Placeholder'}
       </div>
       
-      <div className="flex flex-1 flex-col gap-2.5 p-5 md:p-8">
+      <div className="flex flex-1 flex-col gap-2 p-4 md:p-8">
         
-        <h3 className="m-0 text-xl font-bold text-accent-dark group-hover:text-accent-light md:text-2xl">
+        {/* Title with fluid clamp scale */}
+        <h3 className="m-0 text-[clamp(1.15rem,3.5vw,1.5rem)] font-bold leading-tight text-accent-dark group-hover:text-accent-light md:text-2xl">
           {blog.title}
         </h3>
         
-        <p className="m-0 text-sm leading-relaxed text-text-main line-clamp-3 md:text-base md:leading-7">
+        {/* Excerpt - slightly shorter line-clamp on mobile for quick skimming */}
+        <p className="m-0 text-sm leading-relaxed text-text-main line-clamp-2 md:line-clamp-3 md:text-base md:leading-7">
           {blog.excerpt}
         </p>
         
-        <div className="mt-1 flex flex-wrap gap-2">
+        {/* Tags - Hidden on mobile, visible on desktop */}
+        <div className="mt-1 hidden flex-wrap gap-2 md:flex">
           {blog.tags?.map((tag: string) => (
             <span 
               key={tag} 
@@ -38,7 +42,7 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
           ))}
         </div>
         
-        <div className="mt-auto pt-3 font-mono text-xs font-medium text-text-main md:text-[0.85rem]">
+        <div className="mt-auto pt-2 font-mono text-xs font-medium text-text-main md:pt-3 md:text-[0.85rem]">
           {new Date(blog.created_at).toLocaleDateString('en-US', {
             year: 'numeric', month: 'short', day: 'numeric'
           })}
@@ -47,4 +51,3 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
     </Link>
   );
 }
-

@@ -21,7 +21,10 @@ export default function DeveloperPortfolio() {
           }
         });
       },
-      { threshold: 0.6 }
+      { 
+        threshold: 0.2, 
+        rootMargin: "-20% 0px -40% 0px" 
+      }
     );
 
     document.querySelectorAll('section[id]').forEach((section) => {

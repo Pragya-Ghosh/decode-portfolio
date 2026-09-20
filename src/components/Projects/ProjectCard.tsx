@@ -10,13 +10,15 @@ export default function ProjectCard({ project }: { project: Project }) {
   const { title, status, statusLabel, description, tags, githubUrl } = project;
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl border border-border bg-white md:flex-row">
-      {/* Hidden on mobile to keep things fast and lightweight, visible on desktop */}
+    // Borderless and transparent on mobile, returns to bordered card layout on desktop
+    <div className="flex flex-col overflow-hidden border-0 bg-transparent md:flex-row md:rounded-xl md:border md:border-border md:bg-white">
+      {/* Hidden on mobile, visible on desktop */}
       <div className="hidden min-h-40 w-full shrink-0 items-center justify-center bg-border text-text-main md:flex md:min-h-55 md:w-50">
         Img Placeholder
       </div>
       
-      <div className="flex flex-1 flex-col gap-2 p-4 md:p-8">
+      {/* Zero padding on mobile for flush edge-to-edge flow, padded on desktop */}
+      <div className="flex flex-1 flex-col gap-2 p-0 md:p-8">
         
         {/* Title and Badge */}
         <div className="flex flex-col items-start gap-2">

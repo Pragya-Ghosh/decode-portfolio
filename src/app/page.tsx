@@ -22,8 +22,8 @@ export default function DeveloperPortfolio() {
         });
       },
       { 
-        threshold: 0.2, 
-        rootMargin: "-20% 0px -40% 0px" 
+        threshold: 0, 
+        rootMargin: "-100px 0px -50% 0px" 
       }
     );
 

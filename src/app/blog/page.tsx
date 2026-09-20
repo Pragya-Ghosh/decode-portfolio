@@ -1,5 +1,6 @@
 import Link from 'next/link'; 
-import BlogCard, { BlogPost } from '@/components/Blog/BlogCard';
+import BlogCard from '@/components/Blog/BlogCard';
+import { BlogPost } from '@/types/blog';
 import SectionTitle from '@/components/Section/SectionTitle';
 import { createClient } from '@supabase/supabase-js';
 

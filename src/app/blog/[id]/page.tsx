@@ -30,17 +30,19 @@ export default async function SingleBlogPage({ params }: Props) {
   return (
     <div className="flex min-h-screen flex-col">
       
-      <article className="mx-auto mt-24 flex-1 w-full max-w-3xl px-section-x pb-20">
-        <Suspense fallback={<div className="mb-6 h-6 w-32 animate-pulse rounded bg-border" />}>
+      <article className="mx-auto mt-10 sm:mt-14 md:mt-20 flex-1 w-full max-w-3xl px-6 sm:px-8 pb-20">
+        <Suspense fallback={<div className="mb-4 h-6 w-32 animate-pulse rounded bg-border" />}>
           <BlogBackButton />
         </Suspense>
         
-        <header className="mb-10">
-          <h1 className="mb-7 text-4xl font-black text-accent-dark md:text-5xl">
+        {/* Tightened header bottom margin from mb-10 to mb-6 sm:mb-8 */}
+        <header className="mb-6 sm:mb-8">
+          {/* Tightened heading bottom margin from mb-7 to mb-3 sm:mb-4 */}
+          <h1 className="mb-3 sm:mb-4 text-3xl font-black text-accent-dark sm:text-4xl md:text-5xl">
             {blog.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-4 font-mono text-sm text-text-main">
+          <div className="flex flex-wrap items-center gap-4 font-mono text-xs sm:text-sm text-text-main">
             <span>
               {new Date(blog.created_at).toLocaleDateString('en-US', { 
                 year: 'numeric', month: 'long', day: 'numeric' 
@@ -56,7 +58,8 @@ export default async function SingleBlogPage({ params }: Props) {
           </div>
         </header>
 
-        <div className="mb-10 flex min-h-60 w-full items-center justify-center rounded-xl border border-border bg-border font-mono text-sm text-text-main">
+        {/* Tightened cover image container margin from mb-10 to mb-6 sm:mb-8 */}
+        <div className="mb-6 sm:mb-8 flex min-h-48 sm:min-h-60 w-full items-center justify-center rounded-xl border border-border bg-border font-mono text-sm text-text-main">
           {blog.cover_image_url ? 'Cover Image Rendered Here' : 'No Cover Image'}
         </div>
 
@@ -74,8 +77,7 @@ export default async function SingleBlogPage({ params }: Props) {
         </div>
       </article>
 
-      {/* Replaced with your original footer styling, but matched to max-w-3xl */}
-      <footer className="mx-auto flex w-full max-w-3xl flex-col items-center justify-between gap-4 border-t border-border px-section-x py-6 text-center md:h-20 md:flex-row md:py-0 md:text-left">
+      <footer className="mx-auto flex w-full max-w-3xl flex-col items-center justify-between gap-4 border-t border-border px-6 sm:px-8 py-6 text-center md:h-20 md:flex-row md:py-0 md:text-left">
         <p className="m-0 text-[16px] text-text-main transition-colors hover:text-accent-dark">
           © {new Date().getFullYear()} Pragya Ghosh. All rights reserved.
         </p>

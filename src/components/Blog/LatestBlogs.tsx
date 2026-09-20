@@ -55,6 +55,7 @@ export default function LatestBlogs() {
               blog={blog} 
               // Passing the specific widths and snap rules needed just for this carousel
               className="w-[85vw] shrink-0 snap-start md:w-[26rem]" 
+              source="home"
             />
           ))
         )}

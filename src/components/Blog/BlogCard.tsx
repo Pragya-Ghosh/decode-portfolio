@@ -15,12 +15,13 @@ export interface BlogPost {
 interface BlogCardProps {
   blog: BlogPost;
   className?: string;
+  source?: 'home' | 'archive';
 }
 
-export default function BlogCard({ blog, className = "" }: BlogCardProps) {
+export default function BlogCard({ blog, className, source = 'archive' }: BlogCardProps) {
   return (
     <Link 
-      href={`/blog/${blog.id}`} 
+      href={`/blog/${blog.id}?from=${source}`}
       className={`group flex flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-1 hover:shadow-lg ${className}`}
     >
       <div className="flex min-h-48 w-full shrink-0 items-center justify-center bg-border font-mono text-sm text-text-main">

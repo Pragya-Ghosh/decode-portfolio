@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
+import BlogBackButton from '@/components/Blog/BlogBackButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,7 +9,6 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-// Initialize Supabase directly on the server
 const supabaseUrl = process.env.SUPABASE_URL || '';
 const supabaseKey = process.env.SUPABASE_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -17,7 +17,6 @@ export default async function SingleBlogPage({ params }: Props) {
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  // Direct database query on the server
   const { data: blog, error } = await supabase
     .from('blogs')
     .select('*')
@@ -28,12 +27,11 @@ export default async function SingleBlogPage({ params }: Props) {
 
   return (
     <article className="mx-auto mt-24 w-full max-w-3xl px-section-x pb-20">
-      <Link 
-        href="/blog" 
-        className="mb-8 inline-block font-mono text-sm text-accent-light hover:underline"
-      >
-        &larr; cd ..
-      </Link>
+      
+      {/* Wrap the button in Suspense */}
+      <Suspense fallback={<div className="mb-6 h-6 w-32 animate-pulse rounded bg-border"></div>}>
+        <BlogBackButton />
+      </Suspense>
       
       <header className="mb-10">
         <h1 className="mb-4 text-4xl font-black text-accent-dark md:text-5xl">

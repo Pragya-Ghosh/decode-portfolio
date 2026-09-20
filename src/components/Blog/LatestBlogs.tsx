@@ -47,8 +47,7 @@ export default function LatestBlogs() {
         Latest Posts
       </SectionTitle>
       
-      {/* Wrapper */}
-      <div className="relative mt-4 flex w-full items-center md:mt-8 md:px-12">
+      <div className="relative mt-3 flex w-full items-center md:mt-8 md:px-12">
         
         {/* LEFT ARROW (Desktop only) */}
         {!loading && !hasError && blogs.length > 0 && (
@@ -61,7 +60,7 @@ export default function LatestBlogs() {
           </button>
         )}
 
-        {/* CONTAINER*/}
+        {/* CONTAINER */}
         <div 
           ref={scrollContainerRef}
           className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
@@ -102,7 +101,7 @@ export default function LatestBlogs() {
         )}
       </div>
 
-      <div className="mt-6 flex w-full justify-start">
+      <div className="mt-4 flex w-full justify-start">
         <Link 
           href="/blog" 
           className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 text-base text-accent-dark transition-colors hover:text-accent-light"

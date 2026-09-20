@@ -47,14 +47,14 @@ export default function LatestBlogs() {
         Latest Posts
       </SectionTitle>
       
-      {/* Wrapper to hold the < arrows > and the carousel together */}
+      {/* Wrapper to hold the arrows and the carousel together */}
       <div className="relative mt-8 flex w-full items-center">
         
         {/* LEFT ARROW */}
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('left')}
-            className="absolute -left-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
+            className="absolute left-1 sm:-left-3 md:-left-12 lg:-left-16 z-20 flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-sm sm:text-base md:text-lg text-accent-dark shadow-md transition-colors hover:border-accent-light hover:text-accent-light"
             aria-label="Scroll left"
           >
             &lt;
@@ -64,7 +64,7 @@ export default function LatestBlogs() {
         {/* CAROUSEL */}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-6 [&::-webkit-scrollbar]:hidden"
+          className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto px-2 py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-6 [&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
             <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
@@ -94,7 +94,7 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('right')}
-            className="absolute -right-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
+            className="absolute right-1 sm:-right-3 md:-right-12 lg:-right-16 z-20 flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white/90 backdrop-blur-sm text-sm sm:text-base md:text-lg text-accent-dark shadow-md transition-colors hover:border-accent-light hover:text-accent-light"
             aria-label="Scroll right"
           >
             &gt;

@@ -20,8 +20,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         
         {/* Title and Badge */}
         <div className="flex flex-col items-start gap-1.5 md:gap-2">
-          <h3 className="m-0 text-[clamp(1.25rem,4vw,1.5rem)] font-bold leading-tight text-accent-dark md:text-2xl">{title}</h3>
-          <span className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${badgeStyles[status]}`}>
+          <h3 className="m-0 text-[0.95rem] font-bold leading-snug text-accent-dark md:text-[clamp(1.25rem,4vw,1.5rem)] md:leading-tight lg:text-2xl">
+            {title}
+          </h3>
+          
+          <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-semibold md:text-xs ${badgeStyles[status]}`}>
             {statusLabel}
           </span>
         </div>
@@ -48,9 +51,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={githubUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-auto flex w-fit items-center gap-1.5 pt-1.5 text-sm font-medium text-accent-light transition-colors hover:text-accent-dark md:pt-3 md:text-base"
+          className="mt-auto flex w-fit items-center gap-1.5 pt-1.5 text-[0.75rem] font-medium text-accent-light transition-colors hover:text-accent-dark md:pt-3 md:text-base"
         >
-          <FaGithub className="text-base md:text-[1.1rem]" />
+          <FaGithub className="text-[0.85rem] md:text-[1.1rem]" />
           View on GitHub
         </a>
       </div>

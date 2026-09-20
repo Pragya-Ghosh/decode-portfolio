@@ -27,6 +27,16 @@ export default async function BlogArchivePage() {
 
   return (
     <div className="mx-auto mt-24 w-full max-w-6xl px-section-x pb-20">
+      {/* Back button linking directly to home blog section */}
+      <div className="mb-6">
+        <Link 
+          href="/#blogs" 
+          className="group inline-flex items-center gap-2 text-base text-accent-dark transition-colors hover:text-accent-light"
+        >
+          <span className="transition-transform group-hover:-translate-x-1">&larr;</span> Back to Home
+        </Link>
+      </div>
+
       <SectionTitle variant="default" as="h1">
         <span className="mr-6 shrink-0 font-normal text-accent-light">&gt;</span>
         All Posts

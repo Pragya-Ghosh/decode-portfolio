@@ -53,15 +53,22 @@ body {
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 7em; }
+  to { width: 100%; }
 }
 
 @keyframes caret {
   50% { background-color: transparent; }
 }
 
-.animate-typing {
-  display: inline-block;
+.typing-wrap {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+}
+
+.typing-text {
+  display: block;
   overflow: hidden;
   white-space: nowrap;
   width: 0;
@@ -69,10 +76,12 @@ body {
   animation-delay: 0.5s;
 }
 
-.animate-caret {
+.typing-caret {
   display: inline-block;
-  width: 0.6em;
-  height: 1.2em;
+  flex-shrink: 0;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 0.1em;
   background-color: rgba(116, 127, 224, 0.65);
   vertical-align: -0.15em;
   animation: caret 1s steps(1) infinite;

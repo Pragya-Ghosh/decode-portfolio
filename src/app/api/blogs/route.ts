@@ -7,7 +7,11 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function GET() {
   try {
-    const { data, error } = await supabase.from('blogs').select('*');
+    const { data, error } = await supabase
+    .from('blogs')
+    .select('*')
+    .eq('is_published', true) 
+    .order('created_at', { ascending: false }) // Sorts newest to oldest
     if (error) throw error;
     return NextResponse.json(data);
   } catch (err: any) {

@@ -13,7 +13,7 @@ export default function SectionTitle({
   
   const variantClasses = {
     hero: "text-[clamp(3rem,6vw,4.5rem)] leading-[1.5] mt-[50px] mb-[70px]",
-    default: "text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.2] mb-[48px] pb-[16px] border-b-2 border-border",
+    default: "text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.2] mb-6 md:mb-[48px] pb-[16px] border-b-2 border-border",
   };
 
   return (

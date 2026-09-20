@@ -1,6 +1,6 @@
 import { projects } from '@/data/projects';
 import ProjectCard from './ProjectCard';
-import SectionTitle from '@/components/SectionTitle';
+import SectionTitle from '@/components/Section/SectionTitle';
 
 export default function ProjectsSection() {
   return (

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import Section from '@/components/Section'; 
+import Section from '@/components/Section/Section'; 
 import Hero from '@/components/Hero';
 import Terminal from '@/components/Terminal/index';
 import ProjectsSection from '@/components/Projects/ProjectsSection';

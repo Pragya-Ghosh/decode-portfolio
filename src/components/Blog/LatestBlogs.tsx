@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import SectionTitle from '@/components/SectionTitle';
+import SectionTitle from '@/components/Section/SectionTitle';
 import BlogCard, { BlogPost } from '@/components/Blog/BlogCard';
 
 export default function LatestBlogs() {

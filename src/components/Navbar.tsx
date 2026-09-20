@@ -2,7 +2,7 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
   const links = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Blog', href: '#blogs', id: 'blog' },
+    { name: 'Blog', href: '#blogs', id: 'blogs' },
   ];
   
   return (

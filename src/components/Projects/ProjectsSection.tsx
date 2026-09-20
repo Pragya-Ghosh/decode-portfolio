@@ -10,8 +10,8 @@ export default function ProjectsSection() {
         Projects
       </SectionTitle>
 
-      {/* Tighter gap (gap-4) on mobile for fast scanning, full gap-6 on desktop */}
-      <div className="flex flex-col gap-4 md:gap-6">
+      {/* mobile gap-8 for distinct spacing, gap-6 on desktop */}
+      <div className="flex flex-col gap-8 md:gap-6">
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}

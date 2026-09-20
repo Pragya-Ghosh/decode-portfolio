@@ -29,6 +29,7 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
       </div>
       
       <div className="flex flex-1 flex-col gap-2.5 p-5 md:p-8">
+        
         <h3 className="m-0 text-xl font-bold text-accent-dark group-hover:text-accent-light md:text-2xl">
           {blog.title}
         </h3>
@@ -57,3 +58,4 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
     </Link>
   );
 }
+

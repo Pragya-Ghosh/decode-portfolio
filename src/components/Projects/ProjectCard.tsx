@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         
         {/* Title and Badge */}
         <div className="flex flex-col items-start gap-2">
-          {/* Scaled back: text-xl on mobile, text-2xl on desktop */}
+          {/* text-xl on mobile, text-2xl on desktop */}
           <h3 className="m-0 text-xl font-bold text-accent-dark md:text-2xl">{title}</h3>
           <span className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${badgeStyles[status]}`}>
             {statusLabel}
@@ -26,7 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
         
         {/* Description */}
-        {/* Scaled back: text-sm on mobile, text-base on desktop */}
+        {/* text-sm on mobile, text-base on desktop */}
         <p className="m-0 text-sm leading-relaxed text-text-main md:text-base md:leading-7">
           {description}
         </p>

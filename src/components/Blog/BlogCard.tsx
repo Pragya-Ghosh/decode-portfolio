@@ -1,16 +1,5 @@
 import Link from 'next/link';
-
-// Optional: You can move this interface to a types file later!
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content?: string;
-  tags: string[];
-  created_at: string;
-  cover_image_url?: string | null;
-  is_published: boolean;
-}
+import { BlogPost } from '@/types/blog';
 
 interface BlogCardProps {
   blog: BlogPost;

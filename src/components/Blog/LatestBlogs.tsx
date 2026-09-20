@@ -41,9 +41,9 @@ export default function LatestBlogs() {
   };
 
   return (
-    <div className="mx-auto mb-12.5 flex w-full max-w-6xl flex-col px-section-x">
+    <div className="mx-auto mb-12.5 flex w-full max-w-6xl flex-col px-1 sm:px-3 md:px-section-x">
       <SectionTitle variant="default" as="h2">
-        <span className="mr-6 shrink-0 font-normal text-accent-light">&gt;</span>
+        <span className="mr-4 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
         Latest Posts
       </SectionTitle>
       
@@ -54,7 +54,6 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('left')}
-            // Positioned absolutely so it doesn't push the blog cards inward
             className="absolute -left-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
             aria-label="Scroll left"
           >
@@ -65,7 +64,7 @@ export default function LatestBlogs() {
         {/* CAROUSEL */}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-6 [&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
             <div className="flex min-h-[400px] w-full items-center justify-center font-mono text-sm text-text-main">
@@ -84,7 +83,7 @@ export default function LatestBlogs() {
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                className="w-[85vw] shrink-0 snap-start md:w-[26rem]" 
+                className="w-[85vw] shrink-0 snap-start sm:w-[22rem] md:w-[26rem]" 
                 source="home"
               />
             ))
@@ -95,7 +94,6 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('right')}
-            // Positioned absolutely on the right
             className="absolute -right-12 z-10 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
             aria-label="Scroll right"
           >

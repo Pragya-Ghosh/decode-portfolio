@@ -41,7 +41,7 @@ export default function LatestBlogs() {
   };
 
   return (
-    <div className="mx-auto mb-8 sm:mb-10 md:mb-12.5 flex w-full max-w-6xl flex-col px-3 sm:px-4 md:px-section-x">
+    <div className="mx-auto mb-8 sm:mb-10 md:mb-12.5 flex w-full max-w-6xl flex-col px-6 sm:px-8 md:px-section-x">
       <SectionTitle variant="default" as="h2">
         <span className="mr-4 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
         Latest Posts

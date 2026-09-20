@@ -83,7 +83,7 @@ export default function LatestBlogs() {
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                className="w-[85vw] shrink-0 snap-start sm:w-[22rem] md:w-[26rem]" 
+                className="w-[76vw] shrink-0 snap-start sm:w-[22rem] md:w-[26rem]" 
                 source="home"
               />
             ))

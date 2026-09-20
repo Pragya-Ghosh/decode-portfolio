@@ -60,7 +60,7 @@ export default function LatestBlogs() {
           </button>
         )}
 
-        {/* CONTAINER*/}
+        {/* CONTAINER */}
         <div 
           ref={scrollContainerRef}
           className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
@@ -78,11 +78,12 @@ export default function LatestBlogs() {
               No posts found.
             </div>
           ) : (
-            blogs.map((blog) => (
+            blogs.map((blog, index) => (
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                className="w-full shrink-0 snap-start md:w-[26rem]" 
+                // index > 0 hides cards after the first one on mobile, shows all on desktop (md:flex)
+                className={`w-full shrink-0 snap-start md:w-[26rem] ${index > 0 ? 'hidden md:flex' : 'flex'}`} 
                 source="home"
               />
             ))

@@ -27,7 +27,8 @@ export default async function BlogArchivePage() {
   }
 
   return (
-    <div className="mx-auto mt-6 sm:mt-8 w-full max-w-6xl px-3 sm:px-4 md:px-section-x pb-20">
+    // Updated mobile padding to px-6 sm:px-8 to match the narrow Medium-style column width
+    <div className="mx-auto mt-6 sm:mt-8 w-full max-w-6xl px-6 sm:px-8 md:px-section-x pb-20">
       {/* Back button linking directly to home blog section */}
       <div className="mb-6">
         <Link 
@@ -52,7 +53,8 @@ export default async function BlogArchivePage() {
           No posts found.
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        // Changed mobile grid/stack to use a clean vertical column with gap-6, returning to 3-col grid on desktop (md:grid-cols-2 lg:grid-cols-3)
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {blogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
           ))}

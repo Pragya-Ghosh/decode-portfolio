@@ -1,9 +1,9 @@
 import { TerminalLine } from '@/types/terminal';
 
-export const terminalUser = 'pragya';
-export const terminalHost = 'miku';
+export const terminalUser = 'decode';
+export const terminalHost = 'pragya';
 export const terminalPath = '~';
-export const terminalTitle = 'pragya@miku:~';
+export const terminalTitle = 'decode@pragya:~';
 
 export const terminalLines: TerminalLine[] = [
   {

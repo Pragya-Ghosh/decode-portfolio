@@ -27,6 +27,18 @@ const jetBrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Decode | Portfolio",
   description: "Pragya Ghosh's personal portfolio and technical blog",
+  icons: {
+    icon: [
+      {
+        url: "/icon-light.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

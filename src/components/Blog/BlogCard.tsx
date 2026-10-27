@@ -13,7 +13,7 @@ export default function BlogCard({ blog, className, source = 'archive' }: BlogCa
   return (
     <div 
       // Horizontal row on mobile 
-      className={`group flex flex-row items-center gap-4 border-t border-border pt-6 bg-transparent first:border-t-0 first:pt-0 transition-all md:flex-col md:overflow-hidden md:rounded-xl md:border md:border-border md:bg-white md:p-0 md:pt-0 md:hover:-translate-y-1 md:hover:shadow-lg ${className}`}
+      className={`group flex flex-row items-center gap-4 border-t border-border pt-6 bg-transparent first:border-t-0 first:pt-0 transition-all md:flex-col md:overflow-hidden md:rounded-xl md:border md:border-border md:bg-card md:p-0 md:pt-0 md:hover:-translate-y-1 md:hover:shadow-lg ${className}`}
     >
       {/* Rectangular (landscape) thumbnail on mobile */}
       <Link href={href} className="flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-border font-mono text-xs text-text-main md:hidden">

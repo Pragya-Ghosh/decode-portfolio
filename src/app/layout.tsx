@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Monoton, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -49,9 +50,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${monoton.variable} ${jetBrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-bg text-text-main transition-colors duration-300">
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="system" 
+          enableSystem 
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

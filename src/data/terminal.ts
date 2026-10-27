@@ -36,7 +36,7 @@ export const terminalLines: TerminalLine[] = [
   },
   {
     command: 'cat interests.json',
-    output: { kind: 'array', items: ['machine learning', 'data science', 'computer graphics', 'computer vision'] },
+    output: { kind: 'array', items: ['machine learning', 'data science', 'computer vision', 'computer graphics'] },
   },
   {
     command: 'cat education.txt',

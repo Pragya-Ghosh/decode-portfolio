@@ -8,17 +8,20 @@ export default function Terminal() {
       w-[100vw] relative left-1/2 -translate-x-1/2 
       sm:static sm:w-full sm:max-w-6xl sm:translate-x-0"
     >
-
       <div className="w-full overflow-hidden rounded-none sm:rounded-xl bg-term-bg font-mono shadow-2xl ring-0 sm:ring-1 sm:ring-white/10">
         
         {/* kitty tab strip */}
         <div className="flex h-10 items-end gap-1 bg-term-chrome px-2.5 md:h-11 md:px-3">
-          <div className="flex h-8 items-center gap-1.5 rounded-t-md bg-term-tab px-3 text-[0.7rem] text-term-text sm:text-sm md:h-9 md:px-4 md:text-base">
-            <span className="text-term-muted">1:</span>
+          {/* Active Tab: Bright white title with highlighted tab index */}
+          <div className="flex h-8 items-center gap-1.5 rounded-t-md bg-term-tab px-3 text-[0.75rem] font-medium text-white shadow-sm sm:text-sm md:h-9 md:px-4 md:text-base">
+            <span className="font-bold text-term-key">1:</span>
             <span className="truncate max-w-[120px] sm:max-w-none">{terminalTitle}</span>
           </div>
-          <div className="flex h-8 items-center rounded-t-md px-3 text-[0.7rem] text-term-muted sm:text-sm md:h-9 md:px-4 md:text-base">
-            2: zsh
+
+          {/* Inactive Tab: Elevated contrast with interactive hover state */}
+          <div className="flex h-8 items-center gap-1.5 rounded-t-md px-3 text-[0.75rem] text-term-text/70 transition-colors hover:bg-term-tab/40 hover:text-white sm:text-sm md:h-9 md:px-4 md:text-base cursor-pointer">
+            <span className="text-term-text/40">2:</span>
+            <span>zsh</span>
           </div>
         </div>
 

@@ -53,7 +53,7 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('left')}
-            className="absolute -left-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
+            className="absolute -left-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
             aria-label="Scroll left"
           >
             &lt;
@@ -94,7 +94,7 @@ export default function LatestBlogs() {
         {!loading && !hasError && blogs.length > 0 && (
           <button
             onClick={() => scroll('right')}
-            className="absolute -right-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-white text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
+            className="absolute -right-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
             aria-label="Scroll right"
           >
             &gt;

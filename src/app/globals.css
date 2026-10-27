@@ -12,36 +12,92 @@
 
 @theme {
   /* Core Site Colors */
-  --color-bg: #f4f6f9;
-  --color-text-main: #646d7a;
-  --color-accent-dark: #172554;
-  --color-accent-light: #747fe0;
-  --color-border: rgba(100, 109, 122, 0.2);
-
-  /* Terminal Colors (Your Original Palette) */
-  --color-term-bg: #3b4252;
-  --color-term-text: #cdd0d9;
-  --color-term-string: #88c0d0;
-  --color-term-array: #ebcb8b;
-
-  /* Extra Terminal Tokens (Needed for TerminalOutput links) */
-  --color-term-muted: #6c7086;
-  --color-term-key: #89dceb;
-  --color-term-chrome: #181825;
-  --color-term-tab: #313244;
-  --color-term-user: #a6e3a1;
-  --color-term-path: #89b4fa;
-  --color-term-prompt: #f5c2e7;
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-text-main: var(--text-main);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+  --color-border: var(--border);
 
   /* Badges */
-  --color-badge-wip-bg: rgba(230, 168, 23, 0.15);
-  --color-badge-wip-text: #7a4f00;
-  --color-badge-done-bg: rgba(20, 180, 100, 0.12);
-  --color-badge-done-text: #0a6640;
+  --color-badge-wip-bg: var(--badge-wip-bg);
+  --color-badge-wip-text: var(--badge-wip-text);
+  --color-badge-done-bg: var(--badge-done-bg);
+  --color-badge-done-text: var(--badge-done-text);
 
-  /* Custom spacing token for the repeated clamp() padding */
+    /* Terminal Colors */
+  --color-term-bg: var(--term-bg);
+  --color-term-chrome: var(--term-chrome);
+  --color-term-tab: var(--term-tab);
+  --color-term-text: var(--term-text);
+  --color-term-string: var(--term-string);
+  --color-term-array: var(--term-array);
+  --color-term-muted: var(--term-muted);
+  --color-term-key: var(--term-key);
+  --color-term-user: var(--term-user);
+  --color-term-path: var(--term-path);
+  --color-term-prompt: var(--term-prompt);
+
+  /* Custom spacing token */
   --spacing-section-x: clamp(20px, 4vw, 40px);
-} 
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Light Mode */
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --text-main: #646d7a;
+    --accent-dark: #172554;
+    --accent-light: #747fe0;
+    --border: rgba(100, 109, 122, 0.3);
+
+    --term-bg: #3b4252;
+    --term-chrome: #181825;
+    --term-tab: #313244;
+    --term-text: #cdd0d9;
+    --term-string: #88c0d0;
+    --term-array: #ebcb8b;
+    --term-muted: #6c7086;
+    --term-key: #89dceb;
+    --term-user: #a6e3a1;
+    --term-path: #89b4fa;
+    --term-prompt: #f5c2e7;
+
+    --badge-wip-bg: rgba(230, 168, 23, 0.15);
+    --badge-wip-text: #7a4f00;
+    --badge-done-bg: rgba(20, 180, 100, 0.12);
+    --badge-done-text: #0a6640;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --bg: #212121;
+    --card: #2a2a2a;
+    --text-main: #a8a8a8;
+    --accent-dark: #ededed;
+    --accent-light: #8f99ff;
+    --border: rgba(255, 255, 255, 0.1);
+
+    --term-bg: #282c34;
+    --term-chrome: #21252b;
+    --term-tab: #3e4451;
+    --term-text: #abb2bf;
+    --term-string: #98c379;
+    --term-array: #e5c07b;
+    --term-muted: #9da5b4;
+    --term-key: #56b6c2;
+    --term-user: #61afef;
+    --term-path: #c678dd;
+    --term-prompt: #e06c75;
+
+    --badge-wip-bg: rgba(245, 190, 70, 0.14);
+    --badge-wip-text: #f5c451;
+    --badge-done-bg: rgba(74, 222, 128, 0.13);
+    --badge-done-text: #6ee7a0;
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -95,4 +151,4 @@ body {
   vertical-align: text-bottom;
   margin-left: 2px;
   animation: caret 1s steps(1) infinite;
-}
+} 

@@ -1,3 +1,5 @@
+import ThemeToggle from '@/components/Theme/ThemeToggle';
+
 export default function Navbar({ activeSection }: { activeSection: string }) {
   const links = [
     { name: 'Home', href: '#home', id: 'home' },
@@ -15,7 +17,7 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
       {/* Tightened top margin (mt-1.5) and link gap (gap-5) on mobile */}
       <ul className="m-0 mt-1.5 flex w-full list-none flex-row justify-center gap-5 p-0 md:mt-0 md:w-auto md:justify-end md:gap-8">
         {links.map((link) => (
-          <li key={link.id}>
+          <li key={link.id} className="flex items-center">
             <a 
               href={link.href} 
               className={`text-sm font-medium transition-colors hover:text-accent-dark md:text-lg ${
@@ -28,6 +30,9 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
             </a>
           </li>
         ))}
+        <li className="flex items-center">
+          <ThemeToggle />
+        </li>
       </ul>
     </nav>
   );

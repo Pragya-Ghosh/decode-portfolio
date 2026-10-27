@@ -16,7 +16,7 @@ export const projects: Project[] = [
     statusLabel: 'Ongoing',
     description:
       'Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    tags: ['C++', 'Computer Graphics', 'Machine Learning'],
     githubUrl: '#',
   },
   {
@@ -45,5 +45,14 @@ export const projects: Project[] = [
       'A lightweight, concurrent command-line chat application built in C from scratch. Ping! is designed for secure, low-latency communication over TCP. It features a custom application-layer protocol that handles user authentication, targeted real-time messaging, room-wide broadcasting, and local file transfers for upto 100 clients simultaneously.',
     tags: ['C', 'Socket Programming', 'TCP/IP'],
     githubUrl: 'https://github.com/Pragya-Ghosh/ping',
-  }
+  },
+  {
+    title: 'UrbanAI',
+    status: 'done',
+    statusLabel: 'Completed',
+    description:
+      'Satellite-imagery change detection: compare two images of the same location taken at different times and highlight urban development between them.',
+    tags: ['PyTorch', 'Computer Vision', 'TCP/IP'],
+    githubUrl: 'https://github.com/Pragya-Ghosh/ping',
+  },
 ];

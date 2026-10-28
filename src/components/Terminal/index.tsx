@@ -12,21 +12,21 @@ export default function Terminal() {
         
         {/* kitty tab strip */}
         <div className="flex h-10 items-end gap-1 bg-term-chrome px-2.5 md:h-11 md:px-3">
-          {/* Active Tab: Bright white title with highlighted tab index */}
-          <div className="flex h-8 items-center gap-1.5 rounded-t-md bg-term-tab px-3 text-[0.75rem] font-medium text-white shadow-sm sm:text-sm md:h-9 md:px-4 md:text-base">
+          {/* Active Tab */}
+          <div className="flex h-8 items-center gap-1.5 rounded-t-md bg-term-tab px-3 text-[0.8rem] font-medium text-white shadow-sm sm:text-[0.9rem] md:h-9 md:px-4 md:text-base">
             <span className="font-bold text-term-key">1:</span>
             <span className="truncate max-w-[120px] sm:max-w-none">{terminalTitle}</span>
           </div>
 
-          {/* Inactive Tab: Elevated contrast with interactive hover state */}
-          <div className="flex h-8 items-center gap-1.5 rounded-t-md px-3 text-[0.75rem] text-term-text/70 transition-colors hover:bg-term-tab/40 hover:text-white sm:text-sm md:h-9 md:px-4 md:text-base cursor-pointer">
+          {/* Inactive Tab */}
+          <div className="flex h-8 items-center gap-1.5 rounded-t-md px-3 text-[0.8rem] text-term-text/70 transition-colors hover:bg-term-tab/40 hover:text-white sm:text-[0.9rem] md:h-9 md:px-4 md:text-base cursor-pointer">
             <span className="text-term-text/40">2:</span>
             <span>zsh</span>
           </div>
         </div>
 
         {/* body */}
-        <div className="overflow-x-auto p-3 text-[0.75rem] leading-normal text-term-text sm:p-5 sm:text-sm sm:leading-7 md:px-8 md:py-8 md:text-lg md:leading-9">
+        <div className="overflow-x-auto p-3 text-[0.8rem] leading-normal text-term-text sm:p-5 sm:text-[0.9rem] sm:leading-7 md:px-8 md:py-8 md:text-[1.15rem] md:leading-9">
           {terminalLines.map((line) => (
             <div key={line.command} className="mb-3 last:mb-0 sm:mb-5">
               <div className="flex items-center gap-2 whitespace-nowrap">

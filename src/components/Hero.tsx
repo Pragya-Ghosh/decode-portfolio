@@ -14,13 +14,13 @@ export default function Hero() {
             <span className="typing-caret" />
           </span>
         </h1>
-        <p className="mb-3 text-[15px] leading-relaxed text-text-main md:mb-4 md:text-[20px]">
+        <p className="mb-3 text-[15px] leading-relaxed text-text-main md:mb-4 md:text-[22px]">
           I am a CSE student passionate about building data-driven software solutions.
         </p>
-        <p className="mb-3 text-[15px] leading-relaxed text-text-main md:mb-4 md:text-[20px]">
+        <p className="mb-3 text-[15px] leading-relaxed text-text-main md:mb-4 md:text-[22px]">
           From complex analytical insights to clean, beautiful interfaces.
         </p>
-        <p className="m-0 text-[15px] leading-relaxed text-text-main md:text-[20px]">
+        <p className="m-0 text-[15px] leading-relaxed text-text-main md:text-[22px]">
           Check out my{' '}
           <a
             href="#projects"

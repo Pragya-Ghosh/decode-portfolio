@@ -11,7 +11,18 @@ export default function LatestBlogs() {
   const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Update edge states for disabling/enabling scroll arrows
+  const updateEdges = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
+  };
 
   useEffect(() => {
     fetch('/api/blogs')
@@ -21,8 +32,9 @@ export default function LatestBlogs() {
       })
       .then((data) => {
         if (data.error) throw new Error(data.error);
-        setBlogs(data.slice(0, 4));
+        setBlogs(data.slice(0, 5));
         setLoading(false);
+        setTimeout(updateEdges, 50);
       })
       .catch(() => {
         setHasError(true);
@@ -30,40 +42,29 @@ export default function LatestBlogs() {
       });
   }, []);
 
+  // Smooth scroll handler for pagination arrows
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 440;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    const step = card ? card.offsetWidth + 24 : 450; // matches gap-6 (24px)
+    el.scrollBy({ left: direction === 'left' ? -step : step, behavior: 'smooth' });
   };
 
   return (
-    <div className="mx-auto mb-8 sm:mb-10 md:mb-12.5 flex w-full max-w-6xl flex-col px-6 sm:px-8 md:px-section-x">
+    <section className="mx-auto mt-16 mb-8 sm:mb-10 md:mt-20 md:mb-12.5 flex w-full max-w-6xl flex-col px-6 sm:px-8 md:px-section-x">
       <SectionTitle variant="default" as="h2">
         <span className="mr-4 shrink-0 font-normal text-accent-light md:mr-6">&gt;</span>
         Latest Posts
       </SectionTitle>
       
-      <div className="relative mt-2 flex w-full items-center md:mt-8 md:px-12">
+      <div className="relative flex w-full flex-col">
         
-        {/* LEFT ARROW (Desktop only) */}
-        {!loading && !hasError && blogs.length > 0 && (
-          <button
-            onClick={() => scroll('left')}
-            className="absolute -left-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-left-16"
-            aria-label="Scroll left"
-          >
-            &lt;
-          </button>
-        )}
-
-        {/* CONTAINER */}
+        {/* Carousel Container */}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:py-2 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
+          onScroll={updateEdges}
+          className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:snap-x md:snap-mandatory md:gap-6 md:overflow-x-auto md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
         >
           {loading ? (
             <div className="flex min-h-[200px] w-full items-center justify-center font-mono text-sm text-text-main">
@@ -78,38 +79,49 @@ export default function LatestBlogs() {
               No posts found.
             </div>
           ) : (
-            blogs.map((blog, index) => (
+            blogs.map((blog) => (
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                // index > 2 hides cards after the first three on mobile, shows all on desktop (md:flex)
-                className={`w-full shrink-0 snap-start md:w-[26rem] ${index > 2 ? 'hidden md:flex' : 'flex'}`} 
+                // Card width set to ~46% on desktop to allow a clean 10-12% peek of the next card
+                className="w-full shrink-0 snap-start md:w-[calc((100%-3rem)/2.15)]" 
                 source="home"
               />
             ))
           )}
         </div>
 
-        {/* RIGHT ARROW (Desktop only) */}
-        {!loading && !hasError && blogs.length > 0 && (
-          <button
-            onClick={() => scroll('right')}
-            className="absolute -right-12 z-20 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark shadow-sm transition-colors hover:border-accent-light hover:text-accent-light md:flex lg:-right-16"
-            aria-label="Scroll right"
+        {/* Bottom Navigation Row */}
+        <div className="mt-4 flex w-full items-center justify-between md:mt-10">
+          <Link 
+            href="/blog" 
+            className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 text-base text-accent-dark transition-colors hover:text-accent-light"
           >
-            &gt;
-          </button>
-        )}
-      </div>
+            See all posts <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </Link>
 
-      <div className="mt-4 flex w-full justify-start">
-        <Link 
-          href="/blog" 
-          className="group flex items-center gap-2 border-b-2 border-accent-light pb-1 text-base text-accent-dark transition-colors hover:text-accent-light"
-        >
-          See all posts <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
-        </Link>
+          {!loading && !hasError && blogs.length > 2 && (
+            <div className="hidden items-center gap-3 md:flex">
+              <button
+                onClick={() => scroll('left')}
+                disabled={atStart}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark transition-colors hover:border-accent-light hover:text-accent-light disabled:opacity-30 disabled:pointer-events-none"
+                aria-label="Scroll left"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                disabled={atEnd}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-lg text-accent-dark transition-colors hover:border-accent-light hover:text-accent-light disabled:opacity-30 disabled:pointer-events-none"
+                aria-label="Scroll right"
+              >
+                &gt;
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -7,59 +7,67 @@ interface BlogCardProps {
   source?: 'home' | 'archive';
 }
 
-export default function BlogCard({ blog, className, source = 'archive' }: BlogCardProps) {
+export default function BlogCard({ blog, className = '', source = 'archive' }: BlogCardProps) {
   const href = `/blog/${blog.id}?from=${source}`;
 
   return (
-    <div 
-      // Horizontal row on mobile 
-      className={`group flex flex-row items-center gap-4 border-t border-border pt-6 bg-transparent first:border-t-0 first:pt-0 transition-all md:flex-col md:overflow-hidden md:rounded-xl md:border md:border-border md:bg-card md:p-0 md:pt-0 md:hover:-translate-y-1 md:hover:shadow-lg ${className}`}
+    <div
+      // Horizontal row on mobile / vertical card on desktop, colour-change hover
+      className={`group flex flex-row items-center gap-4 border-t border-border bg-transparent pt-6 transition-colors max-md:first:border-t-0 max-md:first:pt-0 md:flex-col md:items-stretch md:overflow-hidden md:rounded-xl md:border md:border-border md:bg-card md:p-0 md:pt-0 md:hover:border-accent-light md:hover:bg-accent-light/5 md:hover:shadow-[0_0_15px_color-mix(in_srgb,var(--accent-light)_20%,transparent)] ${className}`}
     >
-      {/* Rectangular (landscape) thumbnail on mobile */}
-      <Link href={href} className="flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-border font-mono text-xs text-text-main md:hidden">
+      {/* Mobile thumbnail */}
+      <Link
+        href={href}
+        className="flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-border font-mono text-xs text-text-main md:hidden"
+      >
         {blog.cover_image_url ? 'Img' : 'Placeholder'}
       </Link>
 
-      {/* Desktop cover image link */}
-      <Link href={href} className="hidden min-h-48 w-full shrink-0 items-center justify-center bg-border font-mono text-sm text-text-main md:flex">
+      {/* Desktop cover */}
+      <Link
+        href={href}
+        className="hidden min-h-48 w-full shrink-0 items-center justify-center bg-border font-mono text-sm text-text-main md:flex"
+      >
         {blog.cover_image_url ? 'Image loaded' : 'Img Placeholder'}
       </Link>
-      
-      <div className="flex flex-1 flex-col p-0 md:p-8">
-        
-        {/* Title links to post */}
-        <h3 className="m-0 text-[0.95rem] font-bold leading-snug text-accent-dark md:mb-2 md:text-[clamp(1.15rem,3.5vw,1.5rem)] md:leading-tight">
-          <Link href={href} className="line-clamp-3 transition-colors hover:text-accent-light">
+
+      {/* Content wrapper */}
+      <div className="flex flex-1 flex-col p-0 md:pt-4 md:px-8 md:pb-8">
+        {/* Title */}
+        <h3 className="m-0 text-[0.95rem] font-bold leading-snug text-accent-dark md:mb-3 md:text-[clamp(1.25rem,4vw,1.5rem)] md:leading-tight lg:text-2xl">
+          <Link href={href} className="line-clamp-2 transition-colors group-hover:text-accent-light">
             {blog.title}
           </Link>
         </h3>
-        
-        {/* Excerpt - Matched to ProjectCard description size */}
-        <p className="m-0 hidden text-[0.95rem] leading-relaxed text-text-main md:block md:line-clamp-3 md:text-[1.025rem] md:leading-7">
+
+        {/* Excerpt (desktop only) */}
+        <p className="m-0 hidden text-[0.95rem] leading-relaxed text-text-main md:line-clamp-3 md:block md:text-[1.025rem] md:leading-7">
           {blog.excerpt}
         </p>
-        
-        {/* Tags - Added md:mt-3 spacing above tags */}
-        <div className="mt-1 hidden flex-wrap gap-2 md:mt-3 md:flex">
+
+        {/* Tags (desktop only) */}
+        <div className="mt-3 hidden flex-wrap gap-2 md:flex">
           {blog.tags?.map((tag: string) => (
-            <span 
-              key={tag} 
+            <span
+              key={tag}
               className="inline-flex items-center rounded-md border border-accent-light/25 px-2.5 py-1 text-[0.75rem] font-medium text-accent-dark transition-colors hover:border-accent-light/60 hover:bg-accent-light/10"
             >
               {tag}
             </span>
           ))}
         </div>
-        
-        {/* Stacked Date and "Read more >" link on mobile / Date only on desktop */}
-        <div className="mt-2 flex flex-col gap-1 md:mt-auto md:flex-row md:pt-3">
-          <span className="font-mono text-[0.75rem] text-text-main/80 md:text-[0.85rem] md:text-text-main">
+
+        {/* Date, plus "Read more" on mobile */}
+        <div className="mt-3 flex flex-col gap-1 md:mt-auto md:flex-row md:pt-4">
+          <span className="font-mono text-[0.75rem] text-text-main/80 md:text-base md:text-text-main">
             {new Date(blog.created_at).toLocaleDateString('en-US', {
-              year: 'numeric', month: 'short', day: 'numeric'
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
             })}
           </span>
-          
-          <Link 
+
+          <Link
             href={href}
             className="text-[0.75rem] font-medium text-text-main transition-colors hover:text-accent-dark md:hidden"
           >

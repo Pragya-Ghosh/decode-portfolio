@@ -40,15 +40,18 @@ export default async function SingleBlogPage({ params }: Props) {
             {blog.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-4 font-mono text-[0.75rem] sm:text-sm text-text-main">
-            <span>
+          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-text-main">
+            <span className="font-mono font-medium">
               {new Date(blog.created_at).toLocaleDateString('en-US', { 
                 year: 'numeric', month: 'long', day: 'numeric' 
               })}
             </span>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {blog.tags?.map((tag: string) => (
-                <span key={tag} className="rounded-md border border-border px-2 py-1 text-[0.65rem] sm:text-xs">
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-md border border-accent-light/25 px-2.5 py-1 text-xs sm:text-[0.825rem] font-medium text-accent-dark transition-colors hover:border-accent-light/60 hover:bg-accent-light/10"
+                >
                   {tag}
                 </span>
               ))}

@@ -30,21 +30,22 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
         
         {/* Description */}
-        <p className="m-0 text-sm leading-relaxed text-text-main line-clamp-2 md:line-clamp-none md:text-base md:leading-7">
+        <p className="m-0 text-[0.95rem] leading-relaxed text-text-main line-clamp-2 md:line-clamp-none md:text-[1.025rem] md:leading-7">
           {description}
         </p>
         
-        {/* Tags - Hidden on mobile, visible on desktop */}
+        {/* Tags - hidden on mobile */}
         <div className="mt-1 hidden flex-wrap gap-2 md:flex">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-md border border-border px-3 py-1 font-mono text-xs text-text-main md:text-[0.85rem]"
+              className="inline-flex items-center rounded-md border border-accent-light/25 px-2.5 py-1 text-[0.75rem] font-medium text-accent-dark transition-colors hover:border-accent-light/60 hover:bg-accent-light/10"
             >
               {tag}
             </span>
           ))}
         </div>
+
         
         {/* GitHub Link */}
         <a

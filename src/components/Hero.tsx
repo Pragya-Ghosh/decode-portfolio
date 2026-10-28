@@ -17,7 +17,7 @@ export default function Hero() {
           I am a CSE student passionate about building data-driven software solutions.
         </p>
         <p className="mb-3 text-[15px] leading-relaxed text-text-main md:mb-4 md:text-[21px]">
-          From complex analytical insights to clean, beautiful interfaces.
+          From complex problems to seamless, user-centric applications.
         </p>
         <p className="m-0 text-[15px] leading-relaxed text-text-main md:text-[21px]">
           Check out my{' '}

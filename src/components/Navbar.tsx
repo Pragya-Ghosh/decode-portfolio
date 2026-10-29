@@ -34,7 +34,7 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
     }`;
 
   return (
-    <nav className="fixed top-0 right-0 left-0 z-[100] mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between border-b border-border bg-bg px-section-x md:h-[100px]">
+    <nav className="fixed top-0 right-0 left-0 z-[100] mx-auto flex h-16 w-full max-w-6xl items-center justify-between border-b border-border bg-bg px-section-x md:h-[100px]">
       <a
         href="#home"
         onClick={() => setOpen(false)}

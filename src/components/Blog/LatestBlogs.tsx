@@ -79,12 +79,12 @@ export default function LatestBlogs() {
               No posts found.
             </div>
           ) : (
-            blogs.map((blog) => (
+            blogs.map((blog, index) => (
               <BlogCard 
                 key={blog.id} 
                 blog={blog} 
-                // Card width set to ~46% on desktop to allow a clean 10-12% peek of the next card
-                className="w-full shrink-0 snap-start md:w-[calc((100%-3rem)/2.15)]" 
+                // Card width set to ~46% on desktop to allow a clean 10-12% peek of the next card; hides posts beyond 3 on mobile
+                className={`w-full shrink-0 snap-start md:w-[calc((100%-3rem)/2.15)] ${index > 2 ? 'hidden md:flex' : 'flex'}`} 
                 source="home"
               />
             ))
